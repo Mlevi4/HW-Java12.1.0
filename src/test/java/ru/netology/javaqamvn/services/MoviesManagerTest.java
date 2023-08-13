@@ -28,6 +28,7 @@ class MoviesManagerTest {
     Assertions.assertArrayEquals(expected, actual);
 }
 
+    @Test
     public void testFindLastWhenLimitEqualsSize() {
         MoviesManager manager = new MoviesManager();
         String movie1 = "Harry Potter1";
@@ -37,7 +38,6 @@ class MoviesManagerTest {
         String movie5 = "Harry Potter5";
         String movie6 = "Harry Potter6";
         String movie7 = "Harry Potter7";
-        String movie8 = "Harry Potter8";
 
         manager.add(movie1);
         manager.add(movie2);
@@ -51,6 +51,7 @@ class MoviesManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
     public void testFindLastWhenLimitMoreSize() {
         MoviesManager manager = new MoviesManager();
         String movie1 = "Harry Potter1";
@@ -60,7 +61,6 @@ class MoviesManagerTest {
         String movie5 = "Harry Potter5";
         String movie6 = "Harry Potter6";
         String movie7 = "Harry Potter7";
-        String movie8 = "Harry Potter8";
 
         manager.add(movie1);
         manager.add(movie2);
@@ -73,6 +73,7 @@ class MoviesManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
     public void testFindLastWhenLimitLessSize() {
         MoviesManager manager = new MoviesManager();
         String movie1 = "Harry Potter1";
@@ -82,7 +83,6 @@ class MoviesManagerTest {
         String movie5 = "Harry Potter5";
         String movie6 = "Harry Potter6";
         String movie7 = "Harry Potter7";
-        String movie8 = "Harry Potter8";
 
         manager.add(movie1);
         manager.add(movie2);
@@ -91,14 +91,14 @@ class MoviesManagerTest {
         manager.add(movie5);
         manager.add(movie6);
         manager.add(movie7);
-        manager.add(movie8);
 
         String[] actual = manager.findLast();
-        String[] expected = {movie8, movie7, movie6, movie5, movie4};
+        String[] expected = {movie7, movie6, movie5, movie4, movie3};
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
     public void testFindLastWhenLimitEqualsSizeWithCustomLimit() {
         MoviesManager manager = new MoviesManager(3);
         String movie1 = "Harry Potter1";
@@ -108,7 +108,6 @@ class MoviesManagerTest {
         String movie5 = "Harry Potter5";
         String movie6 = "Harry Potter6";
         String movie7 = "Harry Potter7";
-        String movie8 = "Harry Potter8";
 
         manager.add(movie1);
         manager.add(movie2);
@@ -120,8 +119,9 @@ class MoviesManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
     public void testFindLastWhenLimitMoreSizeWithCustomLimit() {
-        MoviesManager manager = new MoviesManager(8);
+        MoviesManager manager = new MoviesManager(7);
         String movie1 = "Harry Potter1";
         String movie2 = "Harry Potter2";
         String movie3 = "Harry Potter3";
@@ -129,7 +129,6 @@ class MoviesManagerTest {
         String movie5 = "Harry Potter5";
         String movie6 = "Harry Potter6";
         String movie7 = "Harry Potter7";
-        String movie8 = "Harry Potter8";
 
         manager.add(movie1);
         manager.add(movie2);
@@ -144,6 +143,7 @@ class MoviesManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
     public void testFindLastWhenLimitLessSizeWithCustomLimit() {
         MoviesManager manager = new MoviesManager(3);
         String movie1 = "Harry Potter1";
@@ -153,7 +153,6 @@ class MoviesManagerTest {
         String movie5 = "Harry Potter5";
         String movie6 = "Harry Potter6";
         String movie7 = "Harry Potter7";
-        String movie8 = "Harry Potter8";
 
         manager.add(movie1);
         manager.add(movie2);
@@ -162,10 +161,9 @@ class MoviesManagerTest {
         manager.add(movie5);
         manager.add(movie6);
         manager.add(movie7);
-        manager.add(movie8);
 
         String[] actual = manager.findLast();
-        String[] expected = {movie8, movie7, movie6};
+        String[] expected = {movie7, movie6, movie5};
 
         Assertions.assertArrayEquals(expected, actual);
     }
