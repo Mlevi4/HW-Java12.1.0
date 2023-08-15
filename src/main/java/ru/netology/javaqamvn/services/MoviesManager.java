@@ -2,7 +2,7 @@ package ru.netology.javaqamvn.services;
 
 public class MoviesManager {
     private String[] movies = new String[0];
-    private int limit;
+    private int limit = 5;
 
     public MoviesManager(int limit) {
         this.limit = limit;
@@ -35,8 +35,8 @@ public class MoviesManager {
 
         String[] result = new String[resultLength];
         for (int i = 0; i < resultLength; i++) {
-            result[i] = movies[movies.length -1 -i];
+            result[i] = movies[movies.length - 1 - i];
         }
-            return result;
+        return result;
     }
 }
